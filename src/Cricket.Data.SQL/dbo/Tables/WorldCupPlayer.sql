@@ -1,0 +1,23 @@
+﻿CREATE TABLE [dbo].[WorldCupPlayer] (
+	[WorldCupPlayerID]	INT				IDENTITY (1, 1) NOT NULL,
+	[PlayerID]			INT				NOT NULL,
+	[SpanBegin]			SMALLINT		NOT NULL,
+	[SpanEnd]			SMALLINT		NOT NULL,
+	[Matches]			SMALLINT		CONSTRAINT [DF_WorldCupPlayer_Matches] DEFAULT ((0)) NOT NULL,
+	[Innings]			SMALLINT		CONSTRAINT [DF_WorldCupPlayer_Innings] DEFAULT ((0)) NOT NULL,
+	[NotOut]			SMALLINT		CONSTRAINT [DF_WorldCupPlayer_NotOut] DEFAULT ((0)) NOT NULL,
+	[Runs]				INT				CONSTRAINT [DF_WorldCupPlayer_Runs] DEFAULT ((0)) NOT NULL,
+	[Highest]			SMALLINT		CONSTRAINT [DF_WorldCupPlayer_Highest] DEFAULT ((0)) NOT NULL,
+	[HighestIsNotOut]	BIT				CONSTRAINT [DF_WorldCupPlayer_HighestIsNotOut] DEFAULT ((0)) NOT NULL,
+	[BallsFaced]		INT				CONSTRAINT [DF_WorldCupPlayer_BallsFaced] DEFAULT ((0)) NOT NULL,
+	[Centuries]			SMALLINT		CONSTRAINT [DF_WorldCupPlayer_Centuries] DEFAULT ((0)) NOT NULL,
+	[Fifties]			SMALLINT		CONSTRAINT [DF_WorldCupPlayer_Fifties] DEFAULT ((0)) NOT NULL,
+	[Ducks]				SMALLINT		CONSTRAINT [DF_WorldCupPlayer_Ducks] DEFAULT ((0)) NOT NULL,
+	[Fours]				SMALLINT		CONSTRAINT [DF_WorldCupPlayer_Fours] DEFAULT ((0)) NOT NULL,
+	[Sixes]				SMALLINT		CONSTRAINT [DF_WorldCupPlayer_Sixes] DEFAULT ((0)) NOT NULL,
+	[DateCreated]		DATETIME2(7)	CONSTRAINT [DF_WorldCupPlayer_DateCreated] DEFAULT (GETDATE()) NOT NULL,
+	[DateUpdated]		DATETIME2(7)	NULL,
+	[DateArchived]		DATETIME2(7)	NULL,
+	CONSTRAINT [PK_WorldCupPlayer] PRIMARY KEY CLUSTERED ([WorldCupPlayerID] ASC),
+	CONSTRAINT [FK_WorldCupPlayer_Player] FOREIGN KEY ([PlayerID]) REFERENCES [dbo].[Player] ([PlayerID])
+);

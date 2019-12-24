@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[User] (
+	[UserID]			INT				IDENTITY (1, 1) NOT NULL,
+	[UserName]			VARCHAR (256)	NOT NULL,
+	[DisplayName]		VARCHAR (256)	NOT NULL,
+	[IsAdmin]			BIT				CONSTRAINT [DF_User_IsAdmin] DEFAULT (0) NOT NULL,
+	[DateCreated]		DATETIME2(7)	CONSTRAINT [DF_User_DateCreated] DEFAULT (GETDATE()) NOT NULL,
+	[DateUpdated]		DATETIME2(7)	NULL,
+	[DateArchived]		DATETIME2(7)	NULL,
+	CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED ([UserID] ASC)
+);
