@@ -14,7 +14,7 @@ Show a graph together with paged data about batsmen who have scored the most num
 - Provide a UI for displaying results.
 
 
-#### Implementation: ####s
+#### Implementation: ####
 
 - Solution constitutes of 4 projects to support well segregated and manageable code
 - Uses Visual Studio 2019 default templates for all projects
