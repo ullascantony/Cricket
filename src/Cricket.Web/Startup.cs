@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Hosting;
 
 using Cricket.Data.Services;
 using Cricket.Domain.Interfaces;
@@ -87,7 +88,7 @@ namespace Cricket.Web
         {
             services
                 .AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddRazorPagesOptions(options =>
                 {
                     options.RootDirectory = "/Pages";
@@ -127,7 +128,7 @@ namespace Cricket.Web
         /// <param name="loggerFactory">Logger factory</param>
         public void Configure(
             IApplicationBuilder app,
-            IHostingEnvironment env,
+            IWebHostEnvironment env,
             ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
@@ -142,18 +143,25 @@ namespace Cricket.Web
                 Logger.LogInformation("Configured custom error page");
             }
 
+            // Enable default HTTPS redirection when available
+            app.UseHttpsRedirection();
+
+            // Add URL based routing capabilities
+            app.UseRouting();
+            Logger.LogInformation("Configured Application Routing");
+
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseCookiePolicy();
+            Logger.LogInformation("Configured Application Web Settings");
 
-            app.UseMvc(routes =>
-                {
-                    routes.MapRoute(
-                        name: "default",
-                        template: "{controller}/{action=Index}/{id?}");
-                })
-                .UseHttpsRedirection()
-                .UseStaticFiles()
-                .UseCookiePolicy();
+            // Add endpoints to controller actions
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller}/{action=Index}/{id?}");
+            });
             Logger.LogInformation("Configured site settings");
 
             loggerFactory.AddFile("logs/cricket_{Date}.log");
