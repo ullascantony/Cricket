@@ -40,7 +40,7 @@ export const reducer = (state = initialState, action) => {
     if (action.type === requestWorldCupPlayerType) {
         return {
             ...state,
-            page: action.page,
+            page: (action.page > 1 ? action.page : 1),
             isLoading: true
         };
     }

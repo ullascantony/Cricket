@@ -84,12 +84,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, h5, h6 {
         margin-top: 0;
     }
 
-#root {
-    flex-direction: row;
-    height: 100%;
-    min-height: 100vh;
-}
-
 #site-left {
     max-width: 15rem;
 }
@@ -110,10 +104,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, h5, h6 {
 
 #site-right {
     width: 100%;
-}
-
-text-danger {
-    color: #ce1126;
 }
 
 .navbar-site {
@@ -258,11 +248,6 @@ text-danger {
         margin-right: 1.1em;
     }
 
-.ui-datepicker,
-.ui-datepicker .ui-datepicker-title select {
-    font-family: DynamicFont, Arial, Helvetica, sans-serif !important;
-}
-
 .contents a,
 .contents a:link,
 .contents a:active,
@@ -310,7 +295,7 @@ text-danger {
         margin-right: auto;
     }
 
-        .contents .table-container .table-site tr:nth-child(odd) {
+        .contents .table-container .table-site tr:nth-child(even) {
             background-color: #f6f6f6;
         }
 
@@ -449,30 +434,6 @@ text-danger {
         border-radius: 0 0 4px 4px;
     }
 
-.alert {
-    padding: .2rem .6rem;
-}
-
-.btn-site, a.btn-site,
-.btn-site:link,
-a.btn-site:link {
-    background-color: #324b60;
-    border-color: #324b60;
-    color: #fff;
-}
-
-    .btn-site:hover,
-    .btn-site:focus,
-    .btn-site:active,
-    a.btn-site:hover,
-    a.btn-site:focus,
-    a.btn-site:active {
-        background-color: #253746;
-        border-color: #253746;
-        color: #fff;
-    }
-
-
 .btn-secondary,
 .btn-secondary:link,
 a.btn-secondary,
@@ -492,19 +453,3 @@ a.btn-secondary:link {
         border-color: #5a6268;
         color: #fff;
     }
-
-.form-label {
-    color: #6c757d;
-    font-weight: bold;
-}
-
-label.form-control {
-    border: 1px solid #eee !important;
-}
-
-.form-control.error,
-.form-control.error:focus {
-    border-color: #d88;
-    box-shadow: 0 0 0 .2rem rgba(221, 0, 0, .25);
-    outline: 0 none;
-}

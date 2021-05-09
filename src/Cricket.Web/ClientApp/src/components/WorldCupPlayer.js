@@ -118,10 +118,10 @@ class WorldCupPlayer extends Component {
             <nav aria-label="Pagination">
                 <ul className="pagination pagination-site" role="navigation">
                     <li className={this.props.isLoading || playerPager.currentPage <= 1 ? 'page-item disabled' : 'page-item'} title={playerPager.currentPage > 1 ? 'Go to first page' : ''}>
-                        <Link className="page-link" to={`/worldcupplayer/${0}`}>|&lt;</Link>
+                        <Link className="page-link" to={`/worldcupplayer/${1}`}>|&lt;</Link>
                     </li>
                     <li className={this.props.isLoading || playerPager.currentPage <= 1 ? 'page-item disabled' : 'page-item'} title={playerPager.currentPage > 1 ? 'Go to previous page (' + (playerPager.currentPage - 1) + ')' : ''}>
-                        <Link className="page-link" to={`/worldcupplayer/${(this.props.page - 1)}`}>&lt;&lt;</Link>
+                        <Link className="page-link" to={`/worldcupplayer/${(playerPager.currentPage - 1)}`}>&lt;&lt;</Link>
                     </li>
                     {playerPager.pages.map(playerPage =>
                         <li key={playerPage} className={this.props.isLoading || playerPager.currentPage === playerPage ? 'page-item current' : 'page-item'} title={playerPager.currentPage !== playerPage ? 'Go to page ' + playerPage : 'Current page is ' + playerPage}>
@@ -129,7 +129,7 @@ class WorldCupPlayer extends Component {
                         </li>
                     )}
                     <li className={this.props.isLoading || playerPager.currentPage >= playerPager.totalPages ? 'page-item disabled' : 'page-item'} title={playerPager.currentPage < playerPager.totalPages ? 'Go to next page (' + (playerPager.currentPage + 1) + ')' : ''}>
-                        <Link className="page-link" to={`/worldcupplayer/${(this.props.page + 1)}`}>&gt;&gt;</Link>
+                        <Link className="page-link" to={`/worldcupplayer/${(playerPager.currentPage + 1)}`}>&gt;&gt;</Link>
                     </li>
                     <li className={this.props.isLoading || playerPager.currentPage >= playerPager.totalPages ? 'page-item disabled' : 'page-item'} title={playerPager.currentPage < playerPager.totalPages ? 'Go to last page (' + (playerPager.totalPages) + ')' : ''}>
                         <Link className="page-link" to={`/worldcupplayer/${(playerPager.totalPages)}`}>&gt;|</Link>
