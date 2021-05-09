@@ -1,33 +1,33 @@
-﻿import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import thunk from 'redux-thunk';
-import { routerReducer, routerMiddleware } from 'react-router-redux';
-import * as WorldCupPlayer from './WorldCupPlayer';
+﻿import { applyMiddleware, compose, createStore } from 'redux';
+import { createBrowserHistory } from 'history';
+import { routerMiddleware, } from 'connected-react-router';
+import thunkMiddleware from 'redux-thunk';
+import createRootReducer from './reducers';
 
-export default function configureStore(history, initialState) {
-    const reducers = {
-        worldCupPlayer: WorldCupPlayer.reducer
-    };
+// Create browser history to use in the Redux store
+export const history = createBrowserHistory({
+    basename: document.getElementsByTagName('base')[0].getAttribute('href')
+});
 
-    const middleware = [
-        thunk,
-        routerMiddleware(history)
-    ];
-
-    // In development, use the browser's Redux dev tools extension if installed
+const configureStore = (preloadedState) => {
     const enhancers = [];
     const isDevelopment = process.env.NODE_ENV === 'development';
     if (isDevelopment && typeof window !== 'undefined' && window.devToolsExtension) {
         enhancers.push(window.devToolsExtension());
     }
 
-    const rootReducer = combineReducers({
-        ...reducers,
-        routing: routerReducer
-    });
-
-    return createStore(
-        rootReducer,
-        initialState,
-        compose(applyMiddleware(...middleware), ...enhancers)
+    const store = createStore(
+        createRootReducer(history),
+        preloadedState,
+        compose(
+            applyMiddleware(
+                thunkMiddleware,
+                routerMiddleware(history)
+            ),
+        )
     );
+
+    return store;
 }
+
+export default configureStore;

@@ -117,6 +117,7 @@ text-danger {
 }
 
 .navbar-site {
+    background-color: #343a40 !important;
     display: block;
     height: 100%;
     padding: 0 !important;
@@ -155,41 +156,34 @@ text-danger {
         width: 15rem;
     }
 
-        .navbar-site .navbar-nav li {
+        .navbar-site .navbar-nav a.nav-link {
             border-top: 1px solid #555;
             font-size: 1em;
             margin-left: .8em;
+            color: #ddd;
+            display: block;
+            overflow: hidden;
+            padding: .6em .8em;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 
-            .navbar-site .navbar-nav li a {
-                color: #ddd;
-                display: block;
-                overflow: hidden;
-                padding: .6em .8em;
-                white-space: nowrap;
-                text-overflow: ellipsis;
+            .navbar-site .navbar-nav a.nav-link:hover,
+            .navbar-site .navbar-nav a.nav-link:focus,
+            .navbar-site .navbar-nav a.nav-link:active {
+                color: #fff;
+                text-decoration: none;
             }
 
-                .navbar-site .navbar-nav li a:hover,
-                .navbar-site .navbar-nav li a:focus,
-                .navbar-site .navbar-nav li a:active {
-                    color: #fff;
-                    text-decoration: none;
-                }
-
-        .navbar-site .navbar-nav .active,
-        .navbar-site .navbar-nav .active + li {
-            border-top: 0;
-        }
-
-            .navbar-site .navbar-nav .active a,
-            .navbar-site .navbar-nav .active a:hover,
-            .navbar-site .navbar-nav .active a:focus,
-            .navbar-site .navbar-nav .active a:active {
+            .navbar-site .navbar-nav a.nav-link.active,
+            .navbar-site .navbar-nav a.nav-link.active:hover,
+            .navbar-site .navbar-nav a.nav-link.active:focus,
+            .navbar-site .navbar-nav a.nav-link.active:active {
                 background-color: #eee;
-                border-top: 0;
+                border-bottom: 0;
                 border-bottom-left-radius: 1.25em;
                 border-bottom-right-radius: 0;
+                border-top: 0;
                 border-top-left-radius: 1.25em;
                 border-top-right-radius: 0;
                 box-shadow: none;
@@ -199,8 +193,17 @@ text-danger {
                 text-shadow: none;
             }
 
+                .navbar-site .navbar-nav a.nav-link.active + a {
+                    border-top: 0;
+                }
+
+.navbar-xs {
+    background-color: #343a40 !important;
+}
+
 .navbar-xs .navbar-toggler {
     border: 1px solid #aaa;
+    margin-left: .9em;
 }
 
     .navbar-xs .navbar-toggler .navbar-toggler-icon {
@@ -242,7 +245,13 @@ text-danger {
     .footer-site a:visited {
         color: #2a363b;
         font-weight: bold;
+        text-decoration: none;
     }
+
+        .footer-site a:active,
+        .footer-site a:hover {
+            text-decoration: underline;
+        }
 
     .footer-site .copyright {
         font-size: 1.1em;
@@ -280,60 +289,109 @@ text-danger {
         margin-bottom: unset;
     }
 
-.contents .table-nowrap td,
-.contents .table-nowrap th {
-    white-space: nowrap;
-}
-
-    .contents .table-nowrap td.wrap,
-    .contents .table-nowrap th.wrap {
-        white-space: normal;
-    }
-
-.contents .table td.nowrap,
-.contents .table th.nowrap {
-    white-space: nowrap;
-}
-
-.contents .table-site {
-    border: 1px solid transparent !important;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-    .contents .table-site tr:nth-child(odd) {
-        background-color: #f6f6f6;
-    }
-
-    .contents .table-site tr th {
-        background-color: #ddd;
-    }
-
-    .contents .table-site tr td,
-    .contents .table-site tr th {
-        border-right: 1px solid transparent !important;
-    }
-
-        .contents .table-site tr td:last-child,
-        .contents .table-site tr th:last-child {
-            border-right: 1px solid #dee2e6 !important;
+        .contents .table-container .table td.nowrap,
+        .contents .table-container .table th.nowrap {
+            white-space: nowrap;
         }
 
-    .contents .table-site a,
-    .contents .table-site a:link,
-    .contents .table-site a:active,
-    .contents .table-site a:focus,
-    .contents .table-site a:hover,
-    .contents .table-site a:visited {
-        color: #2a363b;
-        text-decoration: underline;
+    .contents .table-container .table-nowrap td,
+    .contents .table-container .table-nowrap th {
+        white-space: nowrap;
     }
 
-        .contents .table-site a:hover {
-            text-decoration: none;
+        .contents .table-container .table-nowrap td.wrap,
+        .contents .table-nowrap th.wrap {
+            white-space: normal;
         }
 
-.contents .table-site-pagination {
+    .contents .table-container .table-site {
+        border: 1px solid #dee2e6 !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .contents .table-container .table-site tr:nth-child(odd) {
+            background-color: #f6f6f6;
+        }
+
+        .contents .table-container .table-site tr th {
+            background-color: #ddd;
+            border-bottom: 1px solid #dee2e6 !important;
+        }
+
+        .contents .table-container .table-site tr td,
+        .contents .table-container .table-site tr th {
+            border-right: 1px solid transparent !important;
+        }
+
+            .contents .table-container .table-site tr td:last-child,
+            .contents .table-container .table-site tr th:last-child {
+                border-right: 1px solid #dee2e6 !important;
+            }
+
+        .contents .table-container .table-site a,
+        .contents .table-container .table-site a:link,
+        .contents .table-container .table-site a:active,
+        .contents .table-container .table-site a:focus,
+        .contents .table-container .table-site a:hover,
+        .contents .table-container .table-site a:visited {
+            color: #2a363b;
+            text-decoration: underline;
+        }
+
+            .contents .table-container .table-site a:hover {
+                text-decoration: none;
+            }
+
+    .contents .table-container .table-site-pagination {
+        margin-top: 1em;
+    }
+
+.contents .pagination-site {
+    float: left;
+    font-size: .75em;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: .6em;
+}
+
+    .contents .pagination-site .page-item {
+        cursor: pointer;
+    }
+
+        .contents .pagination-site .page-item .page-link {
+            color: #212529;
+            line-height: 1.25;
+        }
+
+            .contents .pagination-site .page-item .page-link:hover {
+                background-color: rgba(108, 117, 125, 0.25);
+                color: #000;
+            }
+
+        .contents .pagination-site .page-item.current {
+            cursor: default;
+        }
+
+            .contents .pagination-site .page-item.current .page-link,
+            .contents .pagination-site .page-item.current .page-link:active,
+            .contents .pagination-site .page-item.current .page-link:hover {
+                background-color: #6c757d;
+                color: #fff;
+            }
+
+        .contents .pagination-site .page-item.disabled {
+            cursor: default;
+        }
+
+            .contents .pagination-site .page-item.disabled .page-link {
+                background: #eee;
+                color: #babdb0;
+            }
+
+.contents .pagination-summary {
+    float: right;
+    font-size: .8em;
     margin-top: 1em;
 }
 
@@ -342,7 +400,7 @@ text-danger {
 }
 
     .contents .card .card-header {
-        background-color: #5a6268;
+        background-color: #6c757d;
         color: #fff;
         cursor: pointer;
         text-shadow: 1px 1px 3px #000;
@@ -358,6 +416,10 @@ text-danger {
             background-color: #6c757d;
         }
 
+    .contents .card .card-body {
+        overflow-x: hidden;
+    }
+
 .contents .card-expandable .card-header:hover,
 .contents .card-expandable .card-header:focus,
 .contents .card-expandable .card-header:active {
@@ -370,6 +432,22 @@ text-danger {
     max-height: 550px;
     max-width: 1100px;
 }
+
+.accordion > .card {
+    border-radius: 0;
+}
+
+    .accordion > .card > .card-header {
+        border-radius: 0;
+    }
+
+    .accordion > .card:first-of-type {
+        border-radius: 4px 4px 0 0;
+    }
+
+    .accordion > .card:last-of-type {
+        border-radius: 0 0 4px 4px;
+    }
 
 .alert {
     padding: .2rem .6rem;

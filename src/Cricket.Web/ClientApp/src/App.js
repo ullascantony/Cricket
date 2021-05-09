@@ -1,7 +1,6 @@
 ﻿import $ from 'jquery';
-import popper from 'popper.js';
-import bootstrap from 'bootstrap';
-import React from 'react';
+import React, { Component } from 'react';
+import { ConnectedRouter } from 'connected-react-router';
 import { Route } from 'react-router';
 import Layout from './components/Layout';
 import Home from './components/Home';
@@ -9,13 +8,19 @@ import About from './components/About';
 import WorldCupPlayer from './components/WorldCupPlayer';
 
 window.$ = $;
-window.popper = popper;
-window.bootstrap = bootstrap;
 
-export default () => (
-    <Layout>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/about' component={About} />
-        <Route path='/worldcupplayer/:page?' component={WorldCupPlayer} />
-    </Layout>
-);
+class App extends Component {
+    render = () => {
+        return (
+            <ConnectedRouter history={this.props.history} context={this.props.context}>
+                <Layout>
+                    <Route exact name='home' path='/' component={Home} />
+                    <Route name='about' path='/about' component={About} />
+                    <Route name='worldcupplayer' path='/worldcupplayer/:page?' component={WorldCupPlayer} />
+                </Layout>
+            </ConnectedRouter>
+        );
+    }
+}
+
+export default App;
