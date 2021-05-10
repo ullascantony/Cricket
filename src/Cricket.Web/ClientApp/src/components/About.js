@@ -1,4 +1,5 @@
-﻿import React, { Component } from 'react';
+﻿import $ from 'jquery';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Accordion, Card } from 'react-bootstrap';
@@ -16,7 +17,7 @@ class About extends Component {
                             <Accordion.Toggle as={Card.Header} eventKey="0" id="HeadingDevelopment" tabIndex="0" title="Click to collapse/expand section" variant="link">
                                 <span className="card-header-caption">Development tools and resources</span>
                             </Accordion.Toggle>
-                            <Accordion.Collapse eventKey="0" id="PanelDevelopment" aria-labelledby="HeadingDevelopment">
+                            <Accordion.Collapse className="card-collapse" eventKey="0" id="PanelDevelopment" aria-labelledby="HeadingDevelopment">
                                 <Card.Body>
                                     <ul type="square">
                                         <li>This portal is entirely build using <a href="https://stackshare.io/microsoft/microsoft" rel="noopener noreferrer" target="_blank">Microsoft Tech Stack</a> and some popular open source libraries.</li>
@@ -33,7 +34,7 @@ class About extends Component {
                             <Accordion.Toggle as={Card.Header} eventKey="1" id="HeadingSourceCode" tabIndex="0" title="Click to collapse/expand section" variant="link">
                                 <span className="card-header-caption">Source code</span>
                             </Accordion.Toggle>
-                            <Accordion.Collapse eventKey="1" id="PanelSourceCode" aria-labelledby="HeadingSourceCode">
+                            <Accordion.Collapse className="card-collapse" eventKey="1" id="PanelSourceCode" aria-labelledby="HeadingSourceCode">
                                 <Card.Body>
                                     You can download the Source Code of this application using below button.
                                     <hr />
@@ -45,7 +46,7 @@ class About extends Component {
                             <Accordion.Toggle as={Card.Header} eventKey="2" id="HeadingAuthor" tabIndex="0" title="Click to collapse/expand section" variant="link">
                                 <span className="card-header-caption">Author</span>
                             </Accordion.Toggle>
-                            <Accordion.Collapse eventKey="2" id="PanelAuthor" aria-labelledby="HeadingAuthor">
+                            <Accordion.Collapse className="card-collapse" eventKey="2" id="PanelAuthor" aria-labelledby="HeadingAuthor">
                                 <Card.Body>
                                     <b>Ullas Chacko Antony</b>
                                     <br />

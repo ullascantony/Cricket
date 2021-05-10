@@ -147,12 +147,12 @@ class WorldCupPlayer extends Component {
                 <h5>View analytical charts based ICC World Cup player data which is also available as a grid</h5>
                 <hr />
                 <div className="contents">
-                    <Accordion defaultActiveKey="0" id="AccordionResults">
+                    <Accordion defaultActiveKey="0" id="AccordionPlayers">
                         <Card className="card-expandable">
                             <Accordion.Toggle as={Card.Header} eventKey="0" id="HeadingChart" tabIndex="0" title="Click to collapse/expand section" variant="link">
                                 <span className="card-header-caption">Batsmen by team</span>
                             </Accordion.Toggle>
-                            <Accordion.Collapse eventKey="0" id="PanelChart" aria-labelledby="HeadingDevelopment">
+                            <Accordion.Collapse className="card-collapse" eventKey="0" id="PanelChart" aria-labelledby="HeadingChart">
                                 <Card.Body>
                                     {this.renderChart(this.props)}
                                 </Card.Body>
@@ -162,8 +162,8 @@ class WorldCupPlayer extends Component {
                             <Accordion.Toggle as={Card.Header} eventKey="1" id="HeadingData" tabIndex="0" title="Click to collapse/expand section" variant="link">
                                 <span className="card-header-caption">Tabular data</span>
                             </Accordion.Toggle>
-                            <Accordion.Collapse eventKey="1" id="PanelData" aria-labelledby="HeadingSourceCode">
-                                <Card.Body>
+                            <Accordion.Collapse className="card-collapse" eventKey="1" id="PanelData" aria-labelledby="HeadingData">
+                                <Card.Body className="card-body-table">
                                     <div className="table-container">
                                         {this.renderTable(this.props)}
                                     </div>
