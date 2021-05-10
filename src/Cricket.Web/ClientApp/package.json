@@ -2,8 +2,8 @@
   "name": "cricket.web",
   "version": "0.1.0",
   "private": true,
-  "//homepage": "",
-  "homepage": "/cricketwc/",
+  "homepage": "",
+  "//homepage": "/cricketwc/",
   "dependencies": {
     "@babel/core": "^7.14.0",
     "bootstrap": "^5.0.0",
