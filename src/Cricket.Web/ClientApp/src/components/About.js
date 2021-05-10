@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import { Accordion, Card } from 'react-bootstrap';
 
 class About extends Component {
+    componentDidMount = () => {
+        document.title = 'ICC | About';
+    }
+
     render = () => {
         return (
             <div className="text-left">

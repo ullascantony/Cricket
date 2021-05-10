@@ -354,7 +354,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, h5, h6 {
             color: #212529;
             line-height: 1.25;
             padding: .5em .75em .5em .75em;
-            word-break:normal;
+            word-break: normal;
         }
 
             .contents .pagination-site .page-item .page-link:hover {
@@ -409,9 +409,15 @@ h1, .h1, h2, .h2, h3, .h3, h4, h5, h6 {
             background-color: #6c757d;
         }
 
-    .contents .card .card-body-table {
+    .contents .card .card-body-grid {
         display: grid;
         overflow-x: hidden;
+    }
+
+    .contents .card .card-body .chart-container {
+        position: relative;
+        margin: auto;
+        width: 95%;
     }
 
 .contents .card-expandable .card-header:hover,

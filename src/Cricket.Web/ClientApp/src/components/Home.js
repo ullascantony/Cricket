@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { Card } from 'react-bootstrap';
 
 class Home extends Component {
+    componentDidMount = () => {
+        document.title = 'ICC | Home';
+    }
+
     render = () => {
         return (
             <div className="text-left">

@@ -27,7 +27,7 @@ class Layout extends Component {
             <Navbar.Collapse className="flex-column show" id="site-left" key="1">
                 <Navbar className="navbar-site" variant="dark">
                     <div className="navbar-header">
-                        <Navbar.Brand title="International Cricket Council" href="#home">
+                        <Navbar.Brand title="International Cricket Council" href="#">
                             <img alt="ICC Logo" className="navbar-brand-image" src="images/icc_logo.png" />
                             <span className="navbar-brand-text">ICC</span>
                         </Navbar.Brand>

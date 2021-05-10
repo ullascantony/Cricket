@@ -9,6 +9,7 @@ import { getPager } from '../common/pagination';
 
 class WorldCupPlayer extends Component {
     componentDidMount = () => {
+        document.title = 'ICC | World cup players';
         const page = parseInt(this.props.match.params.page, 10) || 0;
         this.props.requestWorldCupPlayer(page);
     }
@@ -52,7 +53,9 @@ class WorldCupPlayer extends Component {
         }
 
         return (
-            <Bar className="chart-canvas" id="ChartCanvas" data={chartData} options={chartOptions} />
+            <div className="chart-container">
+                <Bar className="chart-canvas" id="ChartCanvas" data={chartData} options={chartOptions} />
+            </div>
         );
     }
 
@@ -163,7 +166,7 @@ class WorldCupPlayer extends Component {
                                 <span className="card-header-caption">Tabular data</span>
                             </Accordion.Toggle>
                             <Accordion.Collapse className="card-collapse" eventKey="1" id="PanelData" aria-labelledby="HeadingData">
-                                <Card.Body className="card-body-table">
+                                <Card.Body className="card-body-grid">
                                     <div className="table-container">
                                         {this.renderTable(this.props)}
                                     </div>
