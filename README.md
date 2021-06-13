@@ -24,7 +24,7 @@ Show a graph together with paged data about batsmen who have scored the most num
 - Uses Microsoft Extensions Dependency Injection
 - Uses Microsoft Extensions Logging with SeriLog file logging
 - Uses MS SQL Server as the data persistence mechanism
-- Uses Bootstrap 5 for Responsiveness
+- Uses Bootstrap 4.6 for Responsiveness
 - Uses ChartJS for chart rendering
 - API conforms to RESTful and Micro-services patterns
 - Solution is designed to support Scalability and Testability
