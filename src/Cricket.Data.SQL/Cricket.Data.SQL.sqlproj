@@ -1,30 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <Name>Cricket.Data.SQL</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{607c2b09-98a0-4f2a-8a20-c3f9219c333b}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <ProjectGuid>{20b95cd4-328f-4f5f-b068-bcd23cbccae8}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql140DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
     <RootNamespace>Cricket.Data.SQL</RootNamespace>
     <AssemblyName>Cricket.Data.SQL</AssemblyName>
-    <ModelCollation>1033,CI</ModelCollation>
+    <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
-    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -60,21 +58,21 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="data" />
-    <Folder Include="dbo\" />
-    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo" />
     <Folder Include="dbo\Stored Procedures" />
-  </ItemGroup>
-  <ItemGroup>
-    <Build Include="dbo\Tables\Player.sql" />
-    <Build Include="dbo\Tables\Team.sql" />
-    <Build Include="dbo\Tables\WorldCupPlayer.sql" />
-    <Build Include="dbo\Stored Procedures\GetWorldCupPlayer.sql" />
-    <Build Include="dbo\Stored Procedures\GetTeam.sql" />
-    <Build Include="dbo\Tables\User.sql" />
-    <Build Include="dbo\Stored Procedures\GetUser.sql" />
-    <Build Include="dbo\Stored Procedures\SetUser.sql" />
+    <Folder Include="dbo\Tables" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="data\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Stored Procedures\GetTeam.sql" />
+    <Build Include="dbo\Stored Procedures\GetUser.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorldCupPlayer.sql" />
+    <Build Include="dbo\Stored Procedures\SetUser.sql" />
+    <Build Include="dbo\Tables\Player.sql" />
+    <Build Include="dbo\Tables\Team.sql" />
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\WorldCupPlayer.sql" />
   </ItemGroup>
 </Project>
